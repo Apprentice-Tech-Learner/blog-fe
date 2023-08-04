@@ -14,6 +14,7 @@ import {
 } from "pages/v1";
 
 import 'styles/index.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 type RoutesProp = {
     [key: string]: RouteProps[];

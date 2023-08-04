@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { JduHeader } from "components/organism";
 
 export interface LayoutProps {
     children: React.ReactNode;
@@ -9,6 +10,8 @@ export const Layout =
     return (
         <Fragment>
             <div className="layoutWrapper">
+                <JduHeader />
+
                 <div className="layoutContent">
                     {children}
                 </div>
