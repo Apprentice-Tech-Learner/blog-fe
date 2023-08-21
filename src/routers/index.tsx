@@ -13,8 +13,8 @@ import {
     RootPage
 } from "pages/v1";
 
-import 'styles/index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'styles/index.scss';
 
 type RoutesProp = {
     [key: string]: RouteProps[];
