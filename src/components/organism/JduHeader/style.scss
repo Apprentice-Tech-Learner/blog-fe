@@ -1,17 +1,27 @@
 .jdu-nav-brand {
+    color: var(--text1);
+    transition: 0.125s all ease-in;
     font-family: "YeongdeokBlueroad";
+}
+
+.jdu-nav {
+    color: var(--text1);
+    background: var(--bg-element1);
+    transition: 0.125s all ease-in;
 }
 
 .jdu-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #212529;
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 40px;
     margin-right: 0.5rem;
     cursor: pointer;
+
+    color: var(--text1);
+    transition: 0.125s all ease-in;
 
     svg {
         width: 1.3rem;
@@ -39,4 +49,11 @@
     svg {
         animation: themeChange 0.2s linear;
     }
+}
+
+.btn-dark {
+    color: var(--text1);
+    background: var(--element1);
+    border-color: var(--border1);
+    transition: 0.125s all ease-in;
 }

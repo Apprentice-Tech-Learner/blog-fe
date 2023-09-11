@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 
@@ -8,7 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "store";
 import { darkMode, lightMode } from "store/common";
 
-export const JduHeader = (): JSX.Element => {
+export const JduHeader = ( { setIsLoginModal } : { setIsLoginModal : React.Dispatch<React.SetStateAction<boolean>> } ): JSX.Element => {
+    const isLogin = localStorage.getItem('authToken') !== null;
     const isDarkMode = useSelector((state: RootState) => state.darkMode.isDarkMode);
     const dispatch = useDispatch();
 
@@ -21,7 +22,7 @@ export const JduHeader = (): JSX.Element => {
     };
 
     return (
-        <Navbar expand="sm" className="bg-body-tertiary">
+        <Navbar expand="sm" className="jdu-nav">
             <Container fluid>
                 <Navbar.Brand className="jdu-nav-brand">JduLog</Navbar.Brand>
                 <Navbar.Toggle />
@@ -31,7 +32,15 @@ export const JduHeader = (): JSX.Element => {
                             {isDarkMode ? <MoonIcon/> : <SunIcon/>}
                         </div>
                         <div className="jdu-btn"><SearchIcon /></div>
-                        <Button variant="dark">로그인</Button>
+                        {
+                            isLogin ? (
+                                <Link className='hover-link-btn new-post' to='/write'>
+                                    새 글 작성
+                                </Link>
+                            ) : (
+                                <Button variant="dark" onClick={() => setIsLoginModal(true)}>로그인</Button>
+                            )
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>
