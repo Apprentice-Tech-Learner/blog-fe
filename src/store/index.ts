@@ -1,9 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import { themeModeReducer } from "./common";
+import {
+    authReducer,
+    themeModeReducer
+} from "./common";
 
 export const store = configureStore({
     reducer: {
+        auth: authReducer,
         darkMode: themeModeReducer,
     },
 });

@@ -1,3 +1,6 @@
+@import './LoginForm/style';
+@import './SignUpForm/style';
+
 .modal-background {
   position: fixed;
   top: 0;
@@ -89,7 +92,7 @@
       flex-direction: column;
 
       h2 {
-        font-size: 1.3125rem;
+        //font-size: 1.3125rem;
         color: var(--text1);
       }
 
