@@ -14,6 +14,7 @@ import {
 } from "pages/v1";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 import 'styles/index.scss';
 
 type RoutesProp = {
