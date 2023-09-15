@@ -4,39 +4,53 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 import { RootState } from "store";
-import { setEmail } from "store/common";
+import { setMemberId } from "store/common";
 import { Button, Toastify } from "components/atom";
+import { apiClient } from "api";
+import {AxiosError} from "axios";
 
 const SignUpForm = () => {
     const navigate = useNavigate();
-    const [isEmail, setIsEmail] = useState(false);
+    const [isValid, setIsValid] = useState(false);
     const dispatch = useDispatch();
-    const { email } = useSelector((state: RootState) => state.auth);
+    const { member_id } = useSelector((state: RootState) => state.auth);
 
-    const getEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-        const emailCurrent = e.target.value;
-        dispatch(setEmail(emailCurrent));
+    const chkId = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const regex = /^[a-zA-Z0-9]*$/;
+        const current = e.target.value;
+        dispatch(setMemberId(current));
 
-        if (!emailRegex.test(emailCurrent)) {
-            setIsEmail(false);
+        if (!regex.test(current)) {
+            setIsValid(false);
         } else {
-            setIsEmail(true);
+            setIsValid(true);
         }
     }
 
-    const error = () => toast.error('이메일 형식을 확인해주세요!');
+    const error = () => toast.error('대소문자, 숫자만 허용됩니다!');
 
-    const checkEmail = () => {
+    const checkDuplicate = async () => {
+        try {
+            const request = `/login/find/${member_id}`;
+            const response = await apiClient.get(request);
 
+            if (isValid && response.status === 200) {
+                toast.info(response.data);
+            }
+        } catch (error: any) {
+            console.log(error);
+            if (error.response.status === 409) {
+                toast.error('이미 사용 중인 아이디입니다.');
+            }
+        }
     }
 
     return (
         <div className='signup-form'>
             <div className='input-wrapper'>
-                <input type='text' placeholder='이메일을 입력하세요.' onChange={getEmail} value={email} />
+                <input type='text' placeholder='아이디를 입력하세요.' onChange={chkId} value={member_id} />
                 <Button color='teal' onClick={ () => {
-                    isEmail ? checkEmail() : error()
+                    isValid ? checkDuplicate() : error()
                 }} text='중복확인' />
             </div>
             <Toastify />

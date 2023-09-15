@@ -2,13 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const auth = createSlice({
     name: 'authReducer',
-    initialState: { email: '' },
+    initialState: { member_id: '' },
     reducers: {
-        setEmail: (state, action) => {
-            state.email = action.payload;
+        setMemberId: (state, action) => {
+            state.member_id = action.payload;
         },
     },
 });
 
-export const { setEmail } = auth.actions;
+export const { setMemberId } = auth.actions;
 export const authReducer = auth.reducer;

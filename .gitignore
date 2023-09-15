@@ -24,3 +24,6 @@ yarn-error.log*
 
 # intellij 설정
 /.idea
+
+# 환경변수
+.env
