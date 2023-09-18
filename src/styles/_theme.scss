@@ -93,9 +93,3 @@ body[data-theme='dark'] {
   --prism-code-9: #c678dd;
   --prism-line-number: #5c6370;
 }
-
-body {
-  color: var(--text1);
-  background: var(--bg-page1);
-  transition: 0.125s all ease-in;
-}

@@ -2,6 +2,9 @@
 @import 'constants/colors';
 //@import 'constants/dimensions';
 //@import 'constants/levels';
+@import './font';
+@import './theme';
+@import './constants/base';
 
 // Mixins
 //@import 'mixins/positions';
@@ -9,5 +12,3 @@
 // Style per page
 @import './rootStyle';
 
-@import './font';
-@import './theme';

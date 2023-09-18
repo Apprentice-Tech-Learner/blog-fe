@@ -1,0 +1,145 @@
+.registry-container {
+  width: 768px;
+  margin: 100px auto 0;
+  line-height: 1.5;
+
+  h1 {
+    margin: 0;
+    font-size: 4rem;
+    color: var(--text1);
+    font-weight: bolder;
+  }
+
+  .description {
+    font-size: 1.5rem;
+    color: var(--text1);
+
+    span {
+      font-size: 1rem;
+    }
+  }
+
+  .input-container {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+    .wrapper {
+      margin-bottom: 1.5rem;
+
+      label {
+        display: block;
+        margin-bottom: 1rem;
+        color: var(--text1);
+        line-height: 1.5;
+        font-weight: bold;
+        font-size: 1.125rem;
+        transition: all 0.125s ease-in 0s;
+      }
+
+      .input-wrapper {
+        display: flex;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        align-items: center;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--border2);
+
+        input {
+          display: block;
+          width: 100%;
+          background: transparent;
+          border: none;
+          outline: none;
+          color: var(--text2);
+          line-height: 1.5;
+          font-size: 1.5rem;
+          transition: all 0.125s ease-in 0s;
+        }
+
+        input:disabled {
+          color: var(--text3);
+        }
+
+        svg {
+          font-size: 1.5rem;
+          color: var(--text3);
+        }
+
+        .duplicate {
+          display: block;
+          width: 7rem;
+        }
+
+        .checked {
+          display: block;
+          width: 7rem;
+          pointer-events: none;
+        }
+      }
+
+      .validation {
+        margin: 0.25rem 0;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: rgb(255, 107, 107);
+        font-weight: bold;
+      }
+    }
+
+    .focus-wrapper {
+      label {
+        color: var(--primary2);
+      }
+
+      .input-wrapper {
+        border-bottom: 1px solid var(--primary2);
+
+        input {
+          color: var(--primary2);
+        }
+      }
+    }
+
+    .email-wrapper {
+      pointer-events: none;
+    }
+  }
+
+  .form-bottom {
+    margin-top: 3rem;
+
+    .all-valid {
+      font-size: 1.25rem;
+      line-height: 1.5;
+      color: rgb(255, 107, 107);
+      font-weight: bold;
+    }
+
+    .button-wrapper {
+      button {
+        height: 3rem;
+        font-size: 1.5rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        border-radius: 1.5rem;
+        word-break: keep-all;
+        transition: all 0.125s ease-in 0s;
+      }
+
+      button + button {
+        margin-left: 1rem;
+      }
+
+      .next {
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+
+          &:hover {
+            background: var(--primary1);
+          }
+        }
+      }
+    }
+  }
+}

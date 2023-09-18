@@ -7,9 +7,12 @@ import { RootState } from "store";
 import { setMemberId } from "store/common";
 import { Button, Toastify } from "components/atom";
 import { apiClient } from "api";
-import {AxiosError} from "axios";
 
-const SignUpForm = () => {
+type TSignUpForm = {
+    onClose: () => void,
+}
+
+const SignUpForm = ({ onClose }: TSignUpForm) => {
     const navigate = useNavigate();
     const [isValid, setIsValid] = useState(false);
     const dispatch = useDispatch();
@@ -20,7 +23,7 @@ const SignUpForm = () => {
         const current = e.target.value;
         dispatch(setMemberId(current));
 
-        if (!regex.test(current)) {
+        if (!regex.test(current) || current === '') {
             setIsValid(false);
         } else {
             setIsValid(true);
@@ -35,7 +38,10 @@ const SignUpForm = () => {
             const response = await apiClient.get(request);
 
             if (isValid && response.status === 200) {
-                toast.info(response.data);
+                // toast.info(response.data);
+                onClose();
+
+                navigate(`/registry`);
             }
         } catch (error: any) {
             console.log(error);
@@ -48,7 +54,7 @@ const SignUpForm = () => {
     return (
         <div className='signup-form'>
             <div className='input-wrapper'>
-                <input type='text' placeholder='아이디를 입력하세요.' onChange={chkId} value={member_id} />
+                <input type='text' required placeholder='아이디를 입력하세요.' onChange={chkId} value={member_id} />
                 <Button color='teal' onClick={ () => {
                     isValid ? checkDuplicate() : error()
                 }} text='중복확인' />

@@ -6,7 +6,7 @@
   .input-wrapper {
     display: flex;
     height: 3rem;
-    margin-top: 1rem;
+    margin-top: 10vh;
 
     input {
       flex: 1 1 0%;
@@ -32,55 +32,5 @@
       height: 100%;
       word-break: keep-all;
     }
-  }
-
-  .auth-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-    h3 {
-      color: var(--text3);
-    }
-
-    .auth-input {
-      display: flex;
-      justify-content: space-between;
-      width: 80%;
-      margin-left: 0.5rem;
-      border-bottom: 1px solid var(--border3);
-
-      :focus {
-        border: 1px solid var(--primary1);
-      }
-
-      input {
-        flex: 1 1 0%;
-        background: none;
-        border: none;
-        color: var(--text1);
-
-        :focus {
-          border-bottom: 1px solid var(--primary1);
-        }
-      }
-
-      input::-webkit-outer-spin-button,
-      input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-      }
-
-      button {
-        border-radius: 0;
-        border-top-right-radius: 2px;
-        border-bottom-right-radius: 2px;
-      }
-    }
-  }
-
-  .input-wrapper + .auth-wrapper {
-    margin-top: 1rem;
   }
 }

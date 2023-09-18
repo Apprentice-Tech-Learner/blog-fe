@@ -36,7 +36,7 @@ const AuthModal = ({ isLoginModal, setIsLoginModal }: TAuthModal): JSX.Element =
                             <h2>{isSignUpModal ? '회원가입' : '로그인'}</h2>
                             <section>
                                 <h4>{isSignUpModal ? '신규 회원가입' : '기존 아이디로 로그인'}</h4>
-                                {isSignUpModal ? <SignUpForm /> : <LoginForm onClose={onClose} />}
+                                {isSignUpModal ? <SignUpForm onClose={onClose} /> : <LoginForm onClose={onClose} />}
                             </section>
                         </div>
                         <div className='foot'>

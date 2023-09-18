@@ -3,39 +3,32 @@ import {
     BrowserRouter,
     Route,
     Routes,
-    RouteProps,
     Navigate
 } from 'react-router-dom';
 
 import { Layout } from "components/molecule";
 
 import {
-    RootPage
-} from "pages/v1";
+    RootPage,
+    RegistryPage,
+} from "pages";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 import 'styles/index.scss';
 
-type RoutesProp = {
-    [key: string]: RouteProps[];
-};
-
-export const routes: RoutesProp = {
-    v1: [
-        { path: '/', element: <RootPage />}
-    ]
-};
+export const routes = [
+    { path: '/', element: <RootPage />},
+    { path: '/registry', element: <RegistryPage /> }
+];
 
 const routeList: React.ReactElement[] = [];
 
-Object.entries(routes).forEach(([key, value]) =>
-    value.forEach((route) => {
-        routeList.push(
-            <Route key={`/${key}${route.path}`} path={`/${key}${route.path}`} element={route.element} />
-        );
-    }),
-);
+routes.forEach((route) => {
+    routeList.push(
+        <Route key={`/${route.path}`} path={`/${route.path}`} element={route.element} />
+    );
+});
 
 const RootRouter = (): React.ReactElement => {
     return (
@@ -43,7 +36,7 @@ const RootRouter = (): React.ReactElement => {
             <Layout>
                 <Routes>
                     {routeList}
-                    <Route path="*" element={<Navigate replace to="/v1/" />}/>
+                    <Route path="*" element={<Navigate replace to="/" />}/>
                 </Routes>
             </Layout>
         </BrowserRouter>
