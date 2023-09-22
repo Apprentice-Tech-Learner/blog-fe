@@ -13,7 +13,6 @@ import {
     RegistryPage,
 } from "pages";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 import 'styles/index.scss';
 

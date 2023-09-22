@@ -2,7 +2,7 @@ import classNames from "classnames";
 import React from "react";
 
 type TButton = {
-    color: string,
+    color?: string,
     onClick?: () => void,
     text: string,
     className?: string,

@@ -1,59 +1,84 @@
-.jdu-nav-brand {
-    color: var(--text1);
-    transition: 0.125s all ease-in;
-    font-family: "YeongdeokBlueroad";
-}
+@import './RightHeader/style';
 
-.jdu-nav {
-    color: var(--text1);
-    background: var(--bg-element1);
-    transition: 0.125s all ease-in;
-}
+.jdu-header-container {
+    position: relative;
+    margin: 0 auto 1.5rem;
+    padding: 0 1rem;
+    max-width: 1728px;
 
-.jdu-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 40px;
-    margin-right: 0.5rem;
-    cursor: pointer;
-
-    color: var(--text1);
-    transition: 0.125s all ease-in;
-
-    svg {
-        width: 1.3rem;
-        height: 1.3rem;
+    @keyframes header-slidein {
+        from {
+            transform: translate(-50%, -50%);
+        }
+        to {
+            transform: translate(-50%, 0%);
+        }
     }
-}
 
-.jdu-btn:hover {
-    opacity: 0.5;
-}
-
-@keyframes themeChange {
-    from {
-        width: 10px;
-        height: 10px;
-        transform: rotate(180deg);
+    .header-fixed {
+        position: fixed;
+        top: 0%;
+        left: 50%;
+        z-index: 1;
+        width: 100%;
+        background: var(--bg-element1);
+        transform: translate(-50%, 0%);
+        animation: header-slidein 0.1s;
+        .post-list-nav-bar-container {
+            max-width: 1728px;
+            margin: 0 auto;
+        }
     }
-    to {
-        width: 24px;
-        height: 24px;
-    }
-}
 
-.theme-mode-change {
-    svg {
-        animation: themeChange 0.2s linear;
+    .header {
+        .header-content {
+            width: 100%;
+        }
     }
-}
 
-.btn-dark {
-    color: var(--text1);
-    background: var(--element1);
-    border-color: var(--border1);
-    transition: 0.125s all ease-in;
+    .header,
+    .header-fixed {
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            padding: 0;
+            max-width: 1728px;
+            height: 4rem;
+
+            &.scroll-active {
+                padding: 0 1rem;
+                height: 3rem;
+            }
+
+            .logo-box {
+                display: flex;
+                .logo,
+                .header-title {
+                    display: flex;
+                    align-items: center;
+                    letter-spacing: 0.2rem;
+                    font-family: YeongdeokBlueroad;
+
+                    :nth-child(2) {
+                        margin-left: 1rem;
+                    }
+
+                    .logo-png {
+                        width: 70px;
+                    }
+                }
+                .header-title {
+                    font-size: 1.2rem;
+                    font-family: IndieFlowerTTFRegular, sans-serif, Arial;
+                }
+            }
+        }
+    }
+
+    @include maxWidth1920px;
+    @include maxWidth1440px;
+    @include maxWidth1056px;
+    @include maxWidth1024px;
+    @include minWidth250px;
 }

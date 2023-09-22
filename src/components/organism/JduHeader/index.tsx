@@ -1,50 +1,61 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import classNames from "classnames";
 
-import { SearchIcon, SunIcon, MoonIcon } from "asset/svgs";
 import { useDispatch, useSelector } from "react-redux";
 
+import darkLogo from 'asset/images/darkLogo.png';
+import lightLogo from 'asset/images/darkLogo.png';
+
+import { usePathMatch } from "hooks";
 import { RootState } from "store";
-import { darkMode, lightMode } from "store/common";
+import RightHeader from "./RightHeader";
 
-export const JduHeader = ( { setIsLoginModal } : { setIsLoginModal : React.Dispatch<React.SetStateAction<boolean>> } ): JSX.Element => {
-    const isLogin = localStorage.getItem('authToken') !== null;
-    const isDarkMode = useSelector((state: RootState) => state.darkMode.isDarkMode);
+type TJduHeader = {
+    setIsLoginModal : React.Dispatch<React.SetStateAction<boolean>>,
+}
+
+export const JduHeader = ( { setIsLoginModal }: TJduHeader ): JSX.Element => {
     const dispatch = useDispatch();
+    const isDarkMode = useSelector((state: RootState) => state.darkMode.isDarkMode);
+    const headerRef = useRef<HTMLDivElement>(null);
+    const { headerTitle, activeHeaderTitle, userId } = usePathMatch();
 
-    useEffect(() => {
-        isDarkMode? dispatch(darkMode()) : dispatch(lightMode());
-    }, []);
+    const [scrollActive, setScrollActive] = useState(false);
 
-    const changeTheme = (e: any) => {
-        isDarkMode? dispatch(lightMode()) : dispatch(darkMode());
-    };
+    const renderCondition = window.location.pathname === '/write' || window.location.pathname === '/registry';
 
     return (
-        <Navbar expand="sm" className="jdu-nav">
-            <Container fluid>
-                <Navbar.Brand className="jdu-nav-brand">JduLog</Navbar.Brand>
-                <Navbar.Toggle />
-                <Navbar.Collapse className="justify-content-end">
-                    <Nav>
-                        <div className="jdu-btn theme-mode-change" onClick={changeTheme}>
-                            {isDarkMode ? <MoonIcon/> : <SunIcon/>}
+        <>
+            {renderCondition ? null : (
+                <>
+                    <div className={classNames('jdu-header-container', scrollActive ? 'scroll-active' : '')} ref={headerRef} >
+                        <div className={scrollActive ? 'header-fixed' : 'header'}>
+                            <div className='header-content'>
+                                <span className='logo-box'>
+                                    <Link
+                                      className='logo'
+                                      to='/'
+                                      onClick={() => {
+                                          // dispatch(resetPageNum());
+                                      }}
+                                    >
+                                        <span>JduLog</span>
+                                    </Link>
+
+                                    {activeHeaderTitle && (
+                                        <Link className='header-title' to={`/${userId}`}>
+                                            {headerTitle}
+                                        </Link>
+                                    )}
+                                </span>
+                                <RightHeader setIsLoginModal={setIsLoginModal} />
+                            </div>
                         </div>
-                        <div className="jdu-btn"><SearchIcon /></div>
-                        {
-                            isLogin ? (
-                                <Link className='hover-link-btn new-post' to='/write'>
-                                    새 글 작성
-                                </Link>
-                            ) : (
-                                <Button variant="dark" onClick={() => setIsLoginModal(true)}>로그인</Button>
-                            )
-                        }
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+                    </div>
+                </>
+            )}
+        </>
     );
 };
 

@@ -1,6 +1,6 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { toast } from "react-toastify";
 
 import { apiClient } from "api";
@@ -10,7 +10,6 @@ import { Button, Toastify } from "components/atom";
 
 const RegistryPage = (): JSX.Element => {
     const navigate = useNavigate();
-    const location = useLocation();
     const dispatch = useDispatch();
     const { member_id } = useSelector((state: RootState) => state.auth);
     const [name, setName] = useState('');
@@ -49,6 +48,11 @@ const RegistryPage = (): JSX.Element => {
         passwordActive,
         passwordConfirmActive,
         contactActive } = isActiveFocus;
+
+    useEffect(() => {
+        setIsId(true);
+        setIsIdDuplicateCheck(true);
+    }, []);
 
     const handleFocus = (focus: string) => {
         setIsActiveFocus({
@@ -93,8 +97,9 @@ const RegistryPage = (): JSX.Element => {
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
         const emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
         const emailCurrent = e.target.value;
+        setEmail(emailCurrent);
         if (!emailRegex.test(emailCurrent)) {
-            setEmailMessage('잘목된 이메일 형식입니다.');
+            setEmailMessage('잘못된 이메일 형식입니다.');
             setIsEmail(false);
         } else {
             setEmailMessage('');
@@ -103,7 +108,7 @@ const RegistryPage = (): JSX.Element => {
     }
 
     const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d~!@#$%^*+-]{8,16}$/;
         const passwordCurrent = e.target.value;
         setPassword(passwordCurrent);
         if (!passwordRegex.test(passwordCurrent)) {
@@ -148,23 +153,24 @@ const RegistryPage = (): JSX.Element => {
     };
 
     const onRegister = async () => {
-        // const body = {
-        //     name: name,
-        //     email: email,
-        //     login_id: id,
-        //     password: password,
-        //     about_me: intro,
-        // };
-        // try {
-        //     const { data } = await apiClient.post('auth/signup?type=email', body);
-        //     const { token, id, profile_image } = data;
-        //     localStorage.setItem('authToken', token);
-        //     localStorage.setItem('userId', id);
-        //     localStorage.setItem('userProfileImg', profile_image);
-        //     navigate('/');
-        // } catch (error) {
-        //     console.log(error);
-        // }
+        const body = {
+            id: member_id,
+            password: password,
+            name: name,
+            email: email,
+            contact: contact,
+        };
+
+        try {
+            const { data } = await apiClient.post('/login/signup', body);
+            const { token, id, profile_image } = data;
+            localStorage.setItem('authToken', token);
+            localStorage.setItem('userId', id);
+            localStorage.setItem('userProfileImg', profile_image);
+            navigate('/');
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (
@@ -188,6 +194,7 @@ const RegistryPage = (): JSX.Element => {
                         />
                         {isIdDuplicateCheck ? <Button className='checked' disabled color='darkgray' text='완료' /> : <Button className='duplicate' color='teal' text='중복확인' onClick={onIdDuplicateCheck} />}
                     </div>
+                    <div className='validation'>{idMessage}</div>
                 </div>
                 <div className={nameActive ? 'focus-wrapper wrapper' : 'wrapper'}>
                     <label>이름 ﹡</label>
@@ -269,7 +276,7 @@ const RegistryPage = (): JSX.Element => {
                 </div>
                 <div className='button-wrapper'>
                     <Button className='cancel' text='취소' color='gray' onClick={() => navigate('/')} />
-                    <Button className='next' text='다음' color='teal' disabled={!(isName && isId && isPassword && isPasswordConfirm && isEmail)} onClick={onRegister} />
+                    <Button className='next' text='다음' color='teal' disabled={!(isName && isId && isPassword && isPasswordConfirm && isEmail && isIdDuplicateCheck)} onClick={onRegister} />
                 </div>
             </div>
             <Toastify />
