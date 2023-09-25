@@ -7,6 +7,7 @@ import { RootState } from "store";
 import { setMemberId } from "store/common";
 import { Button, Toastify } from "components/atom";
 import { apiClient } from "api";
+import {isAxiosError} from "axios";
 
 type TSignUpForm = {
     onClose: () => void,
@@ -43,10 +44,12 @@ const SignUpForm = ({ onClose }: TSignUpForm) => {
 
                 navigate(`/registry`);
             }
-        } catch (error: any) {
+        } catch (error: unknown) {
             console.log(error);
-            if (error.response.status === 409) {
-                toast.error('이미 사용 중인 아이디입니다.');
+            if (isAxiosError(error)) {
+                if (error.response?.status === 409) {
+                    toast.error('이미 사용 중인 아이디입니다.');
+                }
             }
         }
     }

@@ -1,0 +1,17 @@
+@keyframes themeChange {
+  from {
+    width: 10px;
+    height: 10px;
+    transform: rotate(180deg);
+  }
+  to {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.theme-mode-change {
+  svg {
+    animation: themeChange 0.2s linear;
+  }
+}

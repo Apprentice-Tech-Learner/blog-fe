@@ -1,0 +1,29 @@
+.toggle-menu-list-container {
+  position: absolute;
+  top: 3.5rem;
+  right: 0;
+  z-index: 1;
+  width: 12rem;
+  margin-top: 0.3rem;
+  margin-left: auto;
+  background-color: var(--bg-element1);
+  box-shadow: rgb(0 0 0 / 10%) 0px 0px 8px;
+
+  .link-tag {
+    display: block;
+    padding: 1.25rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+
+    :nth-child(2) {
+      @media only screen and (min-width: 1024px) {
+        display: none;
+      }
+    }
+
+    :hover {
+      color: var(--primary1);
+      background-color: var(--bg-element2);
+    }
+  }
+}

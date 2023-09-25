@@ -1,5 +1,9 @@
 import React, { useCallback, useState } from "react";
+import { toast } from "react-toastify";
+
 import { Button, Toastify } from "components/atom";
+import { apiClient } from "api";
+import {AxiosError, isAxiosError} from "axios";
 
 type TLoginForm = {
     onClose: () => void,
@@ -24,7 +28,37 @@ const LoginForm = ({ onClose }: TLoginForm) => {
 
     const onSubmit = useCallback(
         async () => {
+            const body = {
+                id: form.id,
+                password: form.password,
+            }
 
+            try {
+                const response = await apiClient.post('/login/validate', body);
+
+                if (response.status == 200) {
+                    const { id, token } = response.data;
+
+                    localStorage.setItem('authToken', token);
+                    localStorage.setItem('userId', id);
+                    setForm({
+                        id: '',
+                        password: '',
+                    });
+                    onClose();
+                }
+            } catch (error: unknown) {
+                console.log(error);
+                if (isAxiosError(error)) {
+                    if (error.response?.status === 401) {
+                        toast.error('비밀번호를 다시 확인해주세요');
+                    } else if (error.response?.status === 403) {
+                        toast.error('아이디를 다시 확인해주세요');
+                    } else {
+                        toast.error('로그인 정보를 다시 확인해주세요');
+                    }
+                }
+            }
         },
         [form]
     );

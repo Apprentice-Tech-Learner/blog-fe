@@ -163,12 +163,13 @@ const RegistryPage = (): JSX.Element => {
 
         try {
             const { data } = await apiClient.post('/login/signup', body);
-            const { token, id, profile_image } = data;
+            const { token, id } = data;
+
             localStorage.setItem('authToken', token);
             localStorage.setItem('userId', id);
-            localStorage.setItem('userProfileImg', profile_image);
+            // localStorage.setItem('userProfileImg', profile_image);
             navigate('/');
-        } catch (error) {
+        } catch (error: unknown) {
             console.log(error);
         }
     };

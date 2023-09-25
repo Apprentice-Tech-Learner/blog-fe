@@ -1,0 +1,84 @@
+@import './ThemeMode/style';
+@import './ToggleMenuList/style';
+
+.right-menu-container {
+  display: flex;
+  align-items: center;
+
+  .setting-hover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-left: 0.3rem;
+    border-radius: 40px;
+    color: var(--text1);
+
+    svg {
+      width: 24px;
+      height: 24px;
+      pointer-events: none;
+    }
+
+    &:hover {
+      background-color: var(--slight-layer);
+      cursor: pointer;
+    }
+  }
+
+  .hover-link-btn {
+    padding: 0.4rem 1rem;
+    margin-left: 0.5rem;
+    border: 1px solid var(--text1);
+    background-color: var(--bg-element1);
+    color: var(--text1);
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 1rem;
+    word-break: keep-all;
+    transition: all 0.125s ease-in 0s;
+
+    &:hover {
+      background-color: var(--bg-invert);
+      color: var(--text-invert);
+      transition: all 0.125s ease-in 0s;
+      cursor: pointer;
+    }
+  }
+
+  .toggle-open-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.8rem;
+    cursor: pointer;
+
+    .user-profile-image-container {
+      width: 32px;
+      height: 32px;
+    }
+
+    .toggle {
+      width: 12px;
+      margin-left: 0.5rem;
+      color: var(--bg-element9);
+      transition: all 0.125s ease-in 0s;
+    }
+
+    &:hover {
+      .toggle {
+        color: var(--text1);
+      }
+    }
+  }
+
+  .login {
+    background: var(--bg-element5);
+    color: var(--button-text);
+
+    &:hover {
+      background: var(--bg-element6);
+    }
+  }
+}
