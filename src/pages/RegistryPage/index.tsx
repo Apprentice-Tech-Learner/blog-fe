@@ -7,6 +7,7 @@ import { apiClient } from "api";
 import { RootState } from "store";
 import { setMemberId } from "store/common";
 import { Button, Toastify } from "components/atom";
+import {isAxiosError} from "axios";
 
 const RegistryPage = (): JSX.Element => {
     const navigate = useNavigate();
@@ -145,9 +146,11 @@ const RegistryPage = (): JSX.Element => {
                 toast.success('사용할 수 있는 아이디 입니다.');
                 setIsIdDuplicateCheck(true);
             }
-        } catch (error: any) {
-            if (error.response.status === 409) {
-                toast.error('이미 사용 중인 아이디입니다.');
+        } catch (error: unknown) {
+            if (isAxiosError(error)) {
+                if (error.response?.status === 409) {
+                    toast.error('이미 사용 중인 아이디입니다.');
+                }
             }
         }
     };

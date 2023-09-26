@@ -1,0 +1,20 @@
+.write-zone-container {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text3);
+  direction: ltr;
+  cursor: text;
+  caret-color: #56b6c2 !important;
+
+  .ql-container.ql-snow {
+    border: none;
+    .ql-editor {
+      padding: 1rem 0;
+      font-size: 1rem;
+    }
+    .ql-editor.ql-blank::before {
+      left: 0;
+      color: var(--text3);
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@import './Editor/style';
+@import './Preview/style';
+
+.write-container {
+  display: flex;
+
+  @include writeMInWidth1921px;
+  @include writeMaxWidth1920px;
+  @include writeMaxWidth1024px;
+  @include writeMaxWidth768px;
+}

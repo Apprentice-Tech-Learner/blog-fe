@@ -1,0 +1,47 @@
+.toolbar-container {
+  display: flex;
+  align-items: center;
+  min-width: 340px;
+
+  .ql-header {
+    .jdu-ql-header {
+      font-size: 1rem;
+      font-weight: bold;
+      font-family: Serif;
+
+      span {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    outline: none;
+    border: none;
+    background: none;
+    color: var(--text3);
+
+    &:hover {
+      color: var(--text1);
+      background: var(--bg-element2);
+      cursor: pointer;
+    }
+
+    svg {
+      width: 24px;
+      height: 35px;
+    }
+  }
+
+  .vertical-line {
+    width: 1px;
+    height: 1.25rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    background: var(--border3);
+  }
+}
