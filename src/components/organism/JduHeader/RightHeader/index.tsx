@@ -11,7 +11,7 @@ type TRightHeader = {
 }
 
 const RightHeader = ({ setIsLoginModal }: TRightHeader) => {
-    const isLogin = localStorage.getItem('authToken') !== null;
+    const isLogin = localStorage.getItem('accessToken') !== null;
     const [isToggleOpen, setIsToggleOpen] = useState(false);
     const toggleRef = useRef<HTMLDivElement>(null);
     const toggleMenuRef = useRef<HTMLDivElement>(null);

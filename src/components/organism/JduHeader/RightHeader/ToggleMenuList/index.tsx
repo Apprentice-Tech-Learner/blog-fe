@@ -24,7 +24,8 @@ const ToggleMenuList = ({ toggleMenuRef, setIsToggleOpen }: TToggleMenuList) => 
             path: '/',
             onClickHandler: async () => {
                 await window.location.reload();
-                localStorage.removeItem('authToken');
+                localStorage.removeItem('accessToken');
+                localStorage.removeItem('refreshToken');
                 localStorage.removeItem('userId');
             },
         },

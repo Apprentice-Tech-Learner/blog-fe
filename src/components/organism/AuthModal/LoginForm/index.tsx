@@ -37,10 +37,11 @@ const LoginForm = ({ onClose }: TLoginForm) => {
                 const response = await apiClient.post('/login/validate', body);
 
                 if (response.status == 200) {
-                    const { id, token } = response.data;
+                    const { accessToken, refreshToken } = response.data;
 
-                    localStorage.setItem('authToken', token);
-                    localStorage.setItem('userId', id);
+                    localStorage.setItem('accessToken', accessToken);
+                    localStorage.setItem('refreshToken', refreshToken);
+                    localStorage.setItem('userId', form.id);
                     setForm({
                         id: '',
                         password: '',

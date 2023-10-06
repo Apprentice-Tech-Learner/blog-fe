@@ -166,10 +166,11 @@ const RegistryPage = (): JSX.Element => {
 
         try {
             const { data } = await apiClient.post('/login/signup', body);
-            const { token, id } = data;
+            const { accessToken, refreshToken } = data;
 
-            localStorage.setItem('authToken', token);
-            localStorage.setItem('userId', id);
+            localStorage.setItem('accessToken', accessToken);
+            localStorage.setItem('refreshToken', refreshToken);
+            localStorage.setItem('userId', member_id);
             // localStorage.setItem('userProfileImg', profile_image);
             navigate('/');
         } catch (error: unknown) {
