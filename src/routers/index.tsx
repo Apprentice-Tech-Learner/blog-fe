@@ -12,6 +12,7 @@ import {
     RootPage,
     RegistryPage,
     WritePage,
+    SavesPage,
 } from "pages";
 
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -20,7 +21,8 @@ import 'styles/index.scss';
 export const routes = [
     { path: '/', element: <RootPage />},
     { path: '/registry', element: <RegistryPage /> },
-    { path: '/write', element: <WritePage /> }
+    { path: '/write', element: <WritePage /> },
+    { path: '/saves', element: <SavesPage /> }
 ];
 
 const routeList: React.ReactElement[] = [];

@@ -1,0 +1,30 @@
+@import './SavesList/style';
+
+.saves-container {
+  width: 768px;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (max-width: 1024px) {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-top: 2rem;
+    width: 100%;
+  }
+
+  .title {
+    margin-top: 0;
+    margin-bottom: 3rem;
+    line-height: 1.5;
+    font-size: 3rem;
+
+    @media screen and (max-width: 768px) {
+      margin-bottom: 1.5rem;
+      font-size: 2.5rem;
+    }
+  }
+}

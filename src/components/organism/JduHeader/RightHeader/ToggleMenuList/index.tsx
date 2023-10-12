@@ -20,6 +20,11 @@ const ToggleMenuList = ({ toggleMenuRef, setIsToggleOpen }: TToggleMenuList) => 
             onClickHandler: () => { }
         },
         {
+            name: '임시 글',
+            path: '/saves',
+            onClickHandler: () => { }
+        },
+        {
             name: '로그아웃',
             path: '/',
             onClickHandler: async () => {
