@@ -1,4 +1,6 @@
-import React, { Fragment, useState } from "react";
+import React, {Fragment, useEffect, useState} from "react";
+import { useNavigate } from "react-router-dom";
+
 import { JduHeader } from "components/organism";
 import AuthModal from "../../organism/AuthModal";
 
@@ -6,9 +8,17 @@ export interface LayoutProps {
     children: React.ReactNode;
 }
 
-export const Layout =
-({ children }: LayoutProps): React.ReactElement => {
+export const Layout = ({ children }: LayoutProps): React.ReactElement => {
+    const navigate = useNavigate();
     const [isLoginModal, setIsLoginModal] = useState(false);
+
+    let token = localStorage.getItem('accessToken');
+
+    useEffect(() => {
+        if (!token && (window.location.pathname === '/saves' || 'write')) {
+            navigate('/');
+        }
+    }, []);
 
     return (
         <Fragment>

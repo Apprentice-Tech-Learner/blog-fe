@@ -1,17 +1,20 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import queryString from "query-string";
 
-import { apiClient } from "api";
-import {initialize, setWritePost} from "store/post";
+import { apiClient } from "common/axios";
+import { RootState } from "store";
+import { initialize, setWritePost } from "store/post";
 import { Toastify } from "components/atom";
 
 import Editor from "./Editor";
 import Preview from "./Preview";
+import UploadModal from "./UploadModal";
 
 const WritePage = (): JSX.Element => {
+    const { isUploadModal } = useSelector((state:RootState) => state.writePost);
     const dispatch = useDispatch();
     const location = useLocation();
 
@@ -69,6 +72,7 @@ const WritePage = (): JSX.Element => {
                 <Editor />
                 <Preview />
             </>
+            {isUploadModal && <UploadModal />}
             <Toastify />
         </div>
     )

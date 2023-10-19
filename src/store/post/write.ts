@@ -6,7 +6,7 @@ const initialState = {
     thumbnail: '',
     tags: [],
     seriesId: null,
-    uploadType: '1',
+    uploadType: 1,
     uploadUrl: 'title',
     description: '',
     isUploadModal: false,

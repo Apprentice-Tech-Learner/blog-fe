@@ -6,7 +6,7 @@ import querystring from "query-string";
 import { BiArrowBack } from "react-icons/bi";
 import { Button } from "components/atom";
 
-import { apiClient } from "api";
+import { apiClient } from "common/axios";
 import { RootState } from "store";
 import { setWritePost } from "store/post";
 

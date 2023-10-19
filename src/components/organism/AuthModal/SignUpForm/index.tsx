@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { RootState } from "store";
 import { setMemberId } from "store/common";
 import { Button, Toastify } from "components/atom";
-import { apiClient } from "api";
+import { apiClient } from "common/axios";
 import {isAxiosError} from "axios";
 
 type TSignUpForm = {

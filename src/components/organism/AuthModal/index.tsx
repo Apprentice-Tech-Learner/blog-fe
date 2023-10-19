@@ -55,7 +55,7 @@ const AuthModal = ({ isLoginModal, setIsLoginModal }: TAuthModal): JSX.Element =
                 </div>
             </div>
         </>
-    )
+    );
 }
 
 export default AuthModal;

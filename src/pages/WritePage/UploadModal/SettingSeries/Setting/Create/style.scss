@@ -1,0 +1,59 @@
+.create-controller {
+  padding: 1rem;
+  background: var(--bg-element3);
+  transition: all 0.125s ease-in 0s;
+
+  .url-create-input {
+    padding: 0.5rem;
+    height: 2rem;
+    width: 100%;
+    box-shadow: rgb(0 0 0 / 3%) 0 0 4px 0;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    background: var(--bg-element1);
+    color: var(--text1);
+    font-size: 0.875rem;
+  }
+
+  .url-slug-wrapper {
+    margin-top: 0.5rem;
+
+    .url-slug-input-wrapper {
+      display: flex;
+      padding: 0.5rem;
+      width: 100%;
+      height: 2rem;
+      box-shadow: rgb(0 0 0 / 3%) 0 0 4px 0;
+      border-radius: 2px;
+      background: var(--bg-element1);
+      color: var(--text3);
+      font-size: 0.75rem;
+
+      span {
+        padding-top: 0.16rem;
+      }
+
+      .url-slug-input {
+        flex: 1 1 0;
+        padding-left: 0;
+        outline: none;
+        border: none;
+        background: transparent;
+        color: var(--text1);
+        font-size: inherit;
+      }
+    }
+
+    .btns {
+      display: flex;
+      -webkit-box-pack: end;
+      justify-content: flex-end;
+      margin-top: 0.5rem;
+    }
+
+    button + button {
+      margin-left: 0.875rem;
+    }
+  }
+}

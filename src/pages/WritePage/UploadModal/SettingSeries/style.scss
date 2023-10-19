@@ -1,0 +1,16 @@
+@import "./Setting/style";
+
+.setting-series-container {
+  .view-box {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    height: 3rem;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 4px 0;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    background: var(--bg-element7);
+  }
+}

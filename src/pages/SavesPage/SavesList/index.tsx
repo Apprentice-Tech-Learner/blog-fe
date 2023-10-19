@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { apiClient } from "api";
+import { apiClient } from "common/axios";
 
 import { Toastify } from "components/atom";
 import NoSaves from "./NoSaves";
@@ -22,10 +22,7 @@ const SavesList = ():JSX.Element => {
 
     const getSavesList = async () => {
         try {
-            const config = {
-                headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` },
-            };
-            const { data } = await apiClient.get('/post/saves', config);
+            const { data } = await apiClient.get('/post/saves');
             setSavesList(data);
             !data && setIsNoSaves(true);
         } catch (error) {

@@ -18,16 +18,17 @@ type TJduHeader = {
 export const JduHeader = ( { setIsLoginModal }: TJduHeader ): JSX.Element => {
     const dispatch = useDispatch();
     const isDarkMode = useSelector((state: RootState) => state.darkMode.isDarkMode);
-    const headerRef = useRef<HTMLDivElement>(null);
     const { headerTitle, activeHeaderTitle, userId } = usePathMatch();
+    const headerLenderCondition = window.location.pathname === '/write' || window.location.pathname === '/registry';
+    const postListNavBarCondition = window.location.pathname === '/';
 
+    const [ScrollY, setScrollY] = useState(0);
     const [scrollActive, setScrollActive] = useState(false);
-
-    const renderCondition = window.location.pathname === '/write' || window.location.pathname === '/registry';
+    const headerRef = useRef<HTMLDivElement>(null);
 
     return (
         <>
-            {renderCondition ? null : (
+            {headerLenderCondition ? null : (
                 <>
                     <div className={classNames('jdu-header-container', scrollActive ? 'scroll-active' : '')} ref={headerRef} >
                         <div className={scrollActive ? 'header-fixed' : 'header'}>
@@ -51,6 +52,7 @@ export const JduHeader = ( { setIsLoginModal }: TJduHeader ): JSX.Element => {
                                 </span>
                                 <RightHeader setIsLoginModal={setIsLoginModal} />
                             </div>
+                            {scrollActive && postListNavBarCondition} {/* TODO : post list navbar*/}
                         </div>
                     </div>
                 </>

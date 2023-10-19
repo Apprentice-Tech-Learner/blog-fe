@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import { toast } from "react-toastify";
 
 import { Button, Toastify } from "components/atom";
-import { apiClient } from "api";
+import { apiClient } from "common/axios";
 import {AxiosError, isAxiosError} from "axios";
 
 type TLoginForm = {

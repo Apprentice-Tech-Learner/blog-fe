@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import React, {useEffect, useState} from "react";
 import { toast } from "react-toastify";
 
-import { apiClient } from "api";
+import { apiClient } from "common/axios";
 import { RootState } from "store";
 import { setMemberId } from "store/common";
 import { Button, Toastify } from "components/atom";

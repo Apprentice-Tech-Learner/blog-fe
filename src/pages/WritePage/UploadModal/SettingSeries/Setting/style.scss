@@ -1,0 +1,11 @@
+@import "./Create/style";
+
+.setting-container {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 2px;
+  box-shadow: rgb(0 0 0 / 3%) 0 0 4px 0;
+  overflow: hidden;
+}
