@@ -8,6 +8,7 @@ import SettingThumbnail from "./SettingThumbnail";
 import SettingDescription from "./SettingDescription";
 import SettingPublic from "./SettingPublic";
 import SettingSeries from "./SettingSeries";
+import ModalBtns from "./ModalBtns";
 
 const UploadModal = ():JSX.Element => {
     const { isUploadModal, isSeriesList } = useSelector((state:RootState) => state.writePost);
@@ -37,6 +38,7 @@ const UploadModal = ():JSX.Element => {
                         {!isSeriesList && <SettingPublic />}
                         <SettingSeries />
                     </div>
+                    <ModalBtns />
                 </div>
             </div>
         </div>

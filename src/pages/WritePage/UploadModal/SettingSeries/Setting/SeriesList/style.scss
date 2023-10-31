@@ -1,0 +1,21 @@
+.series-list-container {
+  ul {
+    margin: 0;
+    height: 16.5625rem;
+    padding-left: 0;
+    background: var(--bg-element7);
+    list-style: none;
+    overflow-y: auto;
+
+    li {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border3);
+      cursor: pointer;
+    }
+
+    .active {
+      background: var(--primary1);
+      color: var(--button-text);
+    }
+  }
+}

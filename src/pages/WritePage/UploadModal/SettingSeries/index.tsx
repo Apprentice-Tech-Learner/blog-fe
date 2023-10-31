@@ -9,6 +9,8 @@ import { Toastify } from "components/atom";
 import ContentWrapper from "../ContentWrapper";
 import {setWritePost} from "../../../../store/post";
 import Setting from "./Setting";
+import After from "./After";
+import Before from "./Before";
 
 type TPostSeries = {
     series_id: number,
@@ -28,7 +30,7 @@ const SettingSeries = ():JSX.Element => {
                     headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` },
                 };
                 const { data } = await apiClient.get(`/series/${seriesId}`, config);
-                console.log(data);
+                setSeriesName(data.series_name);
             } catch (error) {
                 toast.error('시리즈 초기화 불러오기 실패');
                 console.log('uploadModal series initial setting error =>', error);
@@ -46,9 +48,9 @@ const SettingSeries = ():JSX.Element => {
                 headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` },
             };
             const { data } = await apiClient.get(`/series`, config);
+            dispatch(setWritePost({ type: 'isSeriesList', value: true }));
 
             if (data !== 'nodata') {
-                dispatch(setWritePost({ type: 'isSeriesList', value: true }));
                 setSeriesList(data);
             }
         } catch (error) {
@@ -56,6 +58,15 @@ const SettingSeries = ():JSX.Element => {
             console.log('uploadModal series initial setting error =>', error);
         }
     };
+
+    const selectSeries = e => {
+        dispatch(setWritePost({ type: 'seriesId', value: Number(e.target.id) }));
+        setSeriesName(e.target.innerText);
+    }
+
+    const removeSeries = () => {
+        dispatch(setWritePost({ type: 'seriesId', value: null }));
+    }
 
     useEffect(() => {
         return () => {
@@ -68,9 +79,9 @@ const SettingSeries = ():JSX.Element => {
             <div className='setting-series-container'>
                 {
                     isSeriesList ? (
-                        <Setting getSeriesList={getSeriesList}/>
+                        <Setting getSeriesList={getSeriesList} seriesList={seriesList} selectSeries={selectSeries}/>
                     ) : (
-                        <div></div>
+                        <div className='view-box'>{seriesId ? <After seriesName={seriesName} getSeriesList={getSeriesList} removeSeries={removeSeries} /> : <Before getSeriesList={getSeriesList} />}</div>
                     )
                 }
             </div>

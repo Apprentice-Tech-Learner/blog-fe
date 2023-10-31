@@ -17,6 +17,7 @@ const Create = ({ getSeriesList }: TCreate):JSX.Element => {
             const config = {
                 headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` },
             };
+            console.log(addSeriesValue);
             const bodyData = {
                 series_name: addSeriesValue,
             };
