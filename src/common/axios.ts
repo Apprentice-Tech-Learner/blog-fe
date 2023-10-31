@@ -41,8 +41,20 @@ const createTokenRefresh = async () => {
             },
         );
 
-        console.log(response);
-    } catch (error) {
+        if (response.status == 200) {
+            const { accessToken, refreshToken } = response.data;
+
+            localStorage.setItem('accessToken', accessToken);
+            localStorage.setItem('refreshToken', refreshToken);
+            localStorage.setItem('userId', user_id);
+        }
+
+        await window.location.reload();
+    } catch (error) { // refresh token 으로 access token 획득 실패시 로그아웃 후 메인화면으로
+        await window.location.reload();
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
+        localStorage.removeItem('userId');
         return undefined;
     }
 };
