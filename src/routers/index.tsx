@@ -20,6 +20,8 @@ import 'styles/index.scss';
 
 export const routes = [
     { path: '/', element: <RootPage />},
+    { path: '/recent', element: <RootPage />},
+    { path: '/follow', element: <RootPage />},
     { path: '/registry', element: <RegistryPage /> },
     { path: '/write', element: <WritePage /> },
     { path: '/saves', element: <SavesPage /> }

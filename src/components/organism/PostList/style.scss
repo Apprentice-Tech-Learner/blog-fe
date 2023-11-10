@@ -1,0 +1,17 @@
+.post-list-controller {
+  width: 1728px;
+  margin: 0 auto;
+  .post-list-out-box {
+    margin: 2rem auto 0 auto;
+    .post-list-inner-box {
+      display: flex;
+      flex-wrap: wrap;
+      margin: -1rem;
+    }
+  }
+
+  @include maxWidth1920px;
+  @include maxWidth1440px;
+  @include maxWidth1056px;
+  @include minWidth250px;
+}

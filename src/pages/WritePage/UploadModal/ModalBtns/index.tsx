@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import { apiClient } from "common";
 import { Button, Toastify } from "components/atom";
 import { RootState } from "store";
 import { setWritePost } from "store/post";
 import querystring from "query-string";
-import {apiClient} from "../../../../common";
 
 const ModalBtns = ():JSX.Element => {
     const { title, content, thumbnail, tags, seriesId, uploadType, uploadUrl, description, isSeriesList } = useSelector((state: RootState) => state.writePost);

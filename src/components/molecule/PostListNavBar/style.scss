@@ -1,0 +1,73 @@
+@import "./PeriodFilter/style";
+@import "./More/style";
+
+.post-list-nav-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .post-list-nav-bar-nav-tab {
+    position: relative;
+    display: flex;
+    width: 14rem;
+
+    &.login {
+      width: 21rem;
+    }
+  }
+  .post-list-nav-bar-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7rem;
+    height: 3rem;
+    margin: 0;
+    border: none;
+    font-size: 1.125rem;
+    background: none;
+    cursor: pointer;
+    color: var(--text3);
+    &.path {
+      color: var(--text1);
+    }
+
+    :nth-last-child(2) {
+      display: none;
+      &.login {
+        display: inherit;
+      }
+    }
+  }
+  .post-list-nav-bar-slide-border {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    height: 2px;
+    background: var(--border1);
+    transition: ease all 0.3s;
+    width: 50%;
+    left: 50%;
+    &.root {
+      left: 0;
+    }
+    &.login {
+      width: 33.33333333333%;
+    }
+    &.login.recent {
+      left: 33.33333333333%;
+    }
+    &.login.follow {
+      left: 66.66666666666%;
+    }
+  }
+
+  .icon {
+    font-size: 1.4rem;
+    margin-right: 0.5rem;
+  }
+  .nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+}
