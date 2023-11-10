@@ -4,6 +4,7 @@ import { RootState } from "store";
 import { usePost } from "hooks/usePost";
 
 import PostListNavBar from "components/molecule/PostListNavBar";
+import Post from "./Post";
 
 const PostList = () => {
     const { name, query, pageNum } = useSelector((state: RootState) => state.navBar);
@@ -14,7 +15,11 @@ const PostList = () => {
             <PostListNavBar />
             <div className='post-list-out-box'>
                 <div className='post-list-inner-box'>
-
+                    {
+                        postData.map((data, i) => {
+                            return <Post key={i} postData={data} />;
+                        })
+                    }
                 </div>
             </div>
         </div>

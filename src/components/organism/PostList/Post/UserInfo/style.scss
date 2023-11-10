@@ -1,0 +1,43 @@
+.user-info-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.625rem 1rem;
+  border-top: 1px solid var(--border4);
+  line-height: 1.5;
+  font-size: 0.75rem;
+
+  .user {
+    display: flex;
+    align-items: center;
+
+    .profile-img {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 0.5rem;
+    }
+
+    .user-by {
+      color: var(--text2);
+
+      .user-name {
+        color: var(--text1);
+        font-weight: bold;
+      }
+    }
+  }
+
+  .likes {
+    display: flex;
+    align-items: center;
+
+    .heart {
+      margin-right: 0.5rem;
+    }
+
+    .like-count {
+      margin-top: 2px;
+    }
+  }
+}

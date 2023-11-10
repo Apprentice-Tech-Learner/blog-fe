@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import GetPostDate from "./GetPostDate";
+import GetPostDate from "components/atom/GetPostDate";
 import EditButton from "./EditButton";
 import React from "react";
 

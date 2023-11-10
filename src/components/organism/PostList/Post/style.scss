@@ -1,0 +1,32 @@
+@import "./PostInfo/style";
+@import "./UserInfo/style";
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  margin: 1rem;
+  border-radius: 4px;
+  background: var(--bg-element1);
+  box-shadow: rgb(0 0 0 / 4%) 0 4px 16px 0;
+  transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
+  overflow: hidden;
+
+  // 반응형
+  @include postViewerMaxWidth1024px;
+  @include postViewerMaxWidth768px;
+
+  &:hover {
+    transform: translate(0, -8px);
+  }
+
+  .thumbnail-box {
+    display: block;
+    color: inherit;
+    .thumbnail-cover {
+      position: relative;
+      width: 100%;
+      padding-top: 52.1921%;
+    }
+  }
+}

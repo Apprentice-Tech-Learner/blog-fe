@@ -36,8 +36,6 @@ const PostListNavBar = () => {
         }
     ];
 
-    console.log(location.pathname);
-
     return (
         <div className='post-list-nav-bar-container'>
             <div className='nav'>

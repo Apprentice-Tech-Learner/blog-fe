@@ -24,7 +24,20 @@ export const usePost = (query, pageNum, name) => {
 
             const { data } = await apiClient.get(`/post?type=${name}&period=${query}&offset=${pageNum}&limit=30`, config);
 
-            console.log(data);
+            if (data.length) {
+                if (pageNum === 1) {
+                    setPostData([]);
+                    setPostData(data);
+                } else {
+                    setPostData(prev => [...prev, ...data]);
+                }
+                setNoMorePosts(true);
+            } else {
+                if (postData.length && pageNum === 1) {
+                    setPostData([]);
+                }
+                setNoMorePosts(false);
+            }
         } catch (error) {
             console.log('메인페이지 게시글 통신 오류 => ', error);
         }
@@ -34,5 +47,5 @@ export const usePost = (query, pageNum, name) => {
         getPostData();
     }, [query, pageNum, name]);
 
-    return { postData, noMorePosts }
-}
+    return { postData, noMorePosts };
+};
