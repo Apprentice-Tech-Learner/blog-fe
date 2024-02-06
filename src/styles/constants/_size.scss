@@ -199,3 +199,72 @@
     }
   }
 }
+
+//detail page 반응형
+@mixin detailPageMinWidth1921px {
+  @media screen and (min-width: 1921px) {
+    width: 768px;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+    .post-area-container {
+      .information-container {
+        display: none;
+      }
+    }
+  }
+}
+
+@mixin detailPageMaxWidth1920px {
+  @media screen and (max-width: 1920px) {
+    width: 768px;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+    .post-area-container {
+      .information-container {
+        .like-icon-container {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@mixin detailPageMaxWidth1024px {
+  @media screen and (max-width: 1024px){
+    .post-area-container {
+      .post-header-title {
+        font-size: 2.25rem;
+      }
+      .authority-container {
+        margin-top: -0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .information-container {
+        display: flex;
+      }
+      .snb-container {
+        display: none;
+      }
+      .content-container {
+        padding: 0 1rem;
+        width: 768px;
+      }
+    }
+  }
+}
+
+@mixin detailPageMaxWidth768px {
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin: 0;
+    padding: 0 1rem;
+
+    .information-container,
+    .post-area-container {
+      .series-container,
+      .authority-container {
+        font-size: 0.875rem;
+      }
+    }
+  }
+}

@@ -21,9 +21,9 @@ const writePostSlice = createSlice({
             // @ts-ignore
             state[action.payload.type] = action.payload.value;
         },
-        initialize: () => initialState,
+        initializeWrite: () => initialState,
     },
 });
 
-export const { setWritePost, initialize } = writePostSlice.actions;
+export const { setWritePost, initializeWrite } = writePostSlice.actions;
 export const writePostReducer = writePostSlice.reducer;

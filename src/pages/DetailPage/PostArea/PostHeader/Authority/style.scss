@@ -1,0 +1,26 @@
+.authority-container {
+  display: flex;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-bottom: -1.25rem;
+
+  button {
+    padding: 0;
+    outline: none;
+    border: none;
+    background: none;
+    color: var(--text3);
+    font-size: inherit;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--text1);
+    }
+  }
+
+  button + button {
+    margin-left: 0.5rem;
+  }
+}

@@ -4,7 +4,7 @@ type TGetPostDate = {
 
 const GetPostDate = ({ postDate }: TGetPostDate) => {
     const getPostDate = (date: Date) => {
-        const milliSeconds = new Date().getDate() - date.getDate();
+        const milliSeconds = new Date().getTime() - date.getTime();
         const seconds = milliSeconds / 1000;
         const minutes = seconds / 60;
         const hours = minutes / 60;

@@ -7,6 +7,7 @@ import {
 
 import {
     writePostReducer,
+    detailPostReducer,
 } from "./post";
 
 import {
@@ -19,6 +20,7 @@ export const store = configureStore({
         darkMode: themeModeReducer,
         writePost: writePostReducer,
         navBar: mainNavBarReducer,
+        detailPost: detailPostReducer,
     },
 });
 

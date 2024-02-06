@@ -1,0 +1,30 @@
+@import "./PostHeader/style";
+
+.post-area-container {
+  margin-top: 5.5rem;
+
+  .post-area-thumbnail {
+    display: block;
+    margin: 2rem auto 0;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100vh;
+    object-fit: contain;
+  }
+
+  .user-box-container {
+    margin-top: 16rem;
+    margin-bottom: 6rem;
+    .user-container {
+      .user {
+        .a {
+          img {
+            width: 8rem;
+            height: 8rem;
+          }
+        }
+      }
+    }
+  }
+}

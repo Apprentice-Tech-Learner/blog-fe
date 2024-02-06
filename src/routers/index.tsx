@@ -13,6 +13,7 @@ import {
     RegistryPage,
     WritePage,
     SavesPage,
+    DetailPage,
 } from "pages";
 
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -22,6 +23,7 @@ export const routes = [
     { path: '/', element: <RootPage />},
     { path: '/recent', element: <RootPage />},
     { path: '/follow', element: <RootPage />},
+    { path: '/post/:postid', element: <DetailPage />},
     { path: '/registry', element: <RegistryPage /> },
     { path: '/write', element: <WritePage /> },
     { path: '/saves', element: <SavesPage /> }

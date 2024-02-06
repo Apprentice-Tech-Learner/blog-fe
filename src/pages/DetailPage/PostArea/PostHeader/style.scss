@@ -1,0 +1,17 @@
+@import "./Authority/style";
+@import "./Information/style";
+@import "./Tags/style";
+
+.post-header-container {
+  h1 {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+    letter-spacing: -0.004em;
+    color: var(--text1);
+    font-size: 3rem;
+    font-weight: 800;
+    word-break: keep-all;
+    transition: color 0.125s ease-in 0s;
+  }
+}

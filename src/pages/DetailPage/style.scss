@@ -1,0 +1,8 @@
+@import "./PostArea/style";
+
+.post-detail-page-container {
+  @include detailPageMinWidth1921px;
+  @include detailPageMaxWidth1920px;
+  @include detailPageMaxWidth1024px;
+  @include detailPageMaxWidth768px;
+}

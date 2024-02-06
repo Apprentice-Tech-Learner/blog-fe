@@ -1,5 +1,5 @@
-import {Link} from "react-router-dom";
-import {AiFillHeart} from "react-icons/ai";
+import { Link } from "react-router-dom";
+import { AiFillHeart } from "react-icons/ai";
 
 const UserInfo = ({ postData }) => {
     const { writer, likes } = postData;
@@ -8,7 +8,7 @@ const UserInfo = ({ postData }) => {
         <div className='user-info-container'>
             <Link to={`/${writer}`} className='user'>
                 <span className='profile-img'>
-
+                    {/* TODO user profile_img set */}
                 </span>
                 <span className='user-by'>
                     by <span className='user-name'>{writer}</span>

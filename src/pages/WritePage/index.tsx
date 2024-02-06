@@ -6,7 +6,7 @@ import queryString from "query-string";
 
 import { apiClient } from "common/axios";
 import { RootState } from "store";
-import { initialize, setWritePost } from "store/post";
+import { initializeWrite, setWritePost } from "store/post";
 import { Toastify } from "components/atom";
 
 import Editor from "./Editor";
@@ -62,7 +62,7 @@ const WritePage = (): JSX.Element => {
 
     useEffect(() => {
         return () => {
-            dispatch(initialize());
+            dispatch(initializeWrite());
         };
     }, []);
 
