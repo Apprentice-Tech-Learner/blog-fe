@@ -1,0 +1,25 @@
+.series-container {
+  position: relative;
+  margin-top: 2rem;
+  padding: 2rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: rgb(0 0 0 / 6%) 0 0 4px 0;
+  background: var(--bg-element2);
+
+  .bookmark-icon-positioner {
+    position: absolute;
+    top: 0;
+    right: 1.5rem;
+    color: var(--primary1);
+    font-size: 52px;
+  }
+
+  .series-btns {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-top: 3rem;
+  }
+}

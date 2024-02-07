@@ -1,0 +1,49 @@
+.share-container {
+  .share-child-positioner {
+    position: relative;
+    top: 28px;
+    left: 20px;
+
+    .facebook,
+    .twitter,
+    .clip {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      transition: all 0.3s;
+      transform: translate(-24px);
+    }
+
+    .facebook.shared {
+      width: 48px;
+      height: 48px;
+      opacity: 1;
+      transform: translate(24px, -80px);
+    }
+    .twitter.shared {
+      width: 48px;
+      height: 48px;
+      opacity: 1;
+      transform: translate(52px, -28px);
+    }
+    .clip.shared {
+      width: 48px;
+      height: 48px;
+      opacity: 1;
+      transform: translate(24px, 24px);
+    }
+  }
+
+  .icon-circle-wrapper {
+    background: var(--bg-element1);
+    color: var(--text3);
+
+    &:hover {
+      border-color: var(--text1);
+      color: var(--text1)
+    }
+  }
+}

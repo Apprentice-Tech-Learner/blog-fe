@@ -43,10 +43,10 @@ const ModalBtns = ():JSX.Element => {
 
                 if (postInfo.id) {
                     const response = await apiClient.patch(`/post/${postInfo.id}`, bodyData, config);
-                    navigate(`/post/${response.data.post_id}`);
+                    navigate(`/post/${response.data}`);
                 } else {
                     const response = await apiClient.post(`/post`, bodyData, config);
-                    navigate(`/post/${response.data.post_id}`);
+                    navigate(`/post/${response.data}`);
                 }
             } catch (error) {
                 toast.error('게시글 업로드 실패');

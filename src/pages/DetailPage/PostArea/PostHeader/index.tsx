@@ -5,6 +5,8 @@ import { RootState } from "store";
 import Authority from "./Authority";
 import Information from "./Information";
 import Tags from "./Tags";
+import Snbs from "./Snbs";
+import Series from "./Series";
 
 const PostHeader = ():JSX.Element => {
     const { postData } = useSelector((state: RootState) => state.detailPost);
@@ -19,6 +21,8 @@ const PostHeader = ():JSX.Element => {
             {is_writer(postData.writer) ? <Authority /> : null}
             <Information />
             <Tags />
+            <Snbs />
+            {postData.series && <Series />}
         </div>
     );
 }
