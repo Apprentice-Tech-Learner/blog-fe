@@ -1,0 +1,46 @@
+.pre-next-container {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+
+  .location-number {
+    color: var(--text3);
+    font-size: 0.875rem;
+  }
+
+  .btn-wrapper {
+    display: flex;
+    margin-left: 1.125rem;
+
+    button {
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      padding: 0;
+      outline: none;
+      border: 1px solid var(--border4);
+      border-radius: 50%;
+      background: var(--bg-element1);
+      color: var(--primary1);
+      font-size: 1.25rem;
+      cursor: pointer;
+
+      svg {
+        color: var(--primary1);
+        pointer-events: none;
+      }
+    }
+
+    .disabled {
+      cursor: default;
+
+      svg {
+        opacity: 0.5;
+      }
+    }
+  }
+}

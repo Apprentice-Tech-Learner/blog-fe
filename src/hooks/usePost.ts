@@ -24,7 +24,7 @@ export const usePost = (query, pageNum, name) => {
 
             const { data } = await apiClient.get(`/post?type=${name}&period=${query}&offset=${pageNum}&limit=30`, config);
 
-            if (data && data.length) {
+            if (data && data.length && data !== 'nodata') {
                 if (pageNum === 1) {
                     setPostData([]);
                     setPostData(data);

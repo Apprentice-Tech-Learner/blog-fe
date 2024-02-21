@@ -16,9 +16,12 @@ const PostList = () => {
             <div className='post-list-out-box'>
                 <div className='post-list-inner-box'>
                     {
-                        postData.map((data, i) => {
-                            return <Post key={i} postData={data} />;
-                        })
+                        postData.length > 0 ?
+                            postData.map((data, i) => {
+                                return <Post key={i} postData={data} />;
+                            })
+                            :
+                            <></>
                     }
                 </div>
             </div>

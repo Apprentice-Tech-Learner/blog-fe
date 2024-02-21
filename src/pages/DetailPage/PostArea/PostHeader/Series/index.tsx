@@ -3,6 +3,9 @@ import { useSelector } from "react-redux";
 
 import { ImBookmark } from "react-icons/im";
 import { RootState } from "store";
+import RouterList from "./RouterList";
+import ListToggle from "./ListToggle";
+import PreNext from "./PreNext";
 
 const Series = () => {
     const { postData } = useSelector((state: RootState) => state.detailPost);
@@ -18,7 +21,11 @@ const Series = () => {
                 <div className='bookmark-icon-positioner'>
                     <ImBookmark />
                 </div>
-                // TODO: 시리즈 UI완성
+                {isToggle && <RouterList />}
+                <div className='series-btns'>
+                    <ListToggle isToggle={isToggle} setIsToggle={setIsToggle} />
+                    <PreNext />
+                </div>
             </div>
         )
     );

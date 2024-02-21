@@ -29,7 +29,6 @@ const DetailPage = (): JSX.Element => {
                 headers: { Authorization: isLogin() },
             };
             const { data } = await apiClient.get(`${location.pathname}`, config);
-            console.log(data);
             dispatch(setDetailPostData(data));
         } catch (error) {
             toast.error('게시글을 불러오지 못했습니다.');
