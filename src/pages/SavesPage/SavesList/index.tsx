@@ -5,7 +5,7 @@ import { apiClient } from "common/axios";
 import { Toastify } from "components/atom";
 import NoSaves from "./NoSaves";
 import Saves from "./Saves";
-import ConfirmModal from "../../../components/molecule/ConfirmModal";
+import ConfirmModal from "components/organism/ConfirmModal";
 
 type TSave = {
     post_id: string,

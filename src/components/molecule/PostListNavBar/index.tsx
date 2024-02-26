@@ -7,6 +7,7 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 
 import PeriodFilter from "./PeriodFilter";
 import More from "./More";
+import {useEffect} from "react";
 
 const PostListNavBar = () => {
     const isLogin = localStorage.getItem('accessToken');
@@ -27,14 +28,19 @@ const PostListNavBar = () => {
             query: 'recent',
             view: false,
         },
-        {
-            name: '팔로우',
-            icon: <IoPeople className='icon' />,
-            path: '/follow',
-            query: 'follow',
-            view: false,
-        }
     ];
+
+    useEffect(() => {
+        if (isLogin) {
+            navBar.push({
+                name: '팔로우',
+                icon: <IoPeople className='icon' />,
+                path: '/follow',
+                query: 'follow',
+                view: false,
+            });
+        }
+    }, []);
 
     return (
         <div className='post-list-nav-bar-container'>

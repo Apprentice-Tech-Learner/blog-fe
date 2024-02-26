@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { apiClient } from "common";
 import { RootState } from "store";
 
-import ConfirmModal from "components/molecule/ConfirmModal";
+import ConfirmModal from "components/organism/ConfirmModal";
 
 const Authority = (): JSX.Element => {
     const navigate = useNavigate();

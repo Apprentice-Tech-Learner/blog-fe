@@ -40,7 +40,7 @@ const WritePage = (): JSX.Element => {
             if (postStatus === '3') {
                 toast.success('임시글 불러오기 성공');
             } else {
-                dispatch(setWritePost({ type: 'seriesId', value: data.series ? data.series[0].series_id : null }));
+                dispatch(setWritePost({ type: 'seriesId', value: data.series ? data.series.series_id : null }));
                 dispatch(setWritePost({ type: 'uploadType', value: data.status }));
                 dispatch(setWritePost({ type: 'description', value: data.description }));
                 toast.success('게시글 불러오기 성공');
